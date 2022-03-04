@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Categorias</title>
+<!-- Bootstrap css -->
+<link href="../static/css/booststrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<div>
+			<a href="/save/0" class="btn btn-primary">agregar</a>
+		</div>
+		<div th:switch=${list}>
+			<h2 th:case="null">No se agregaron categorias</h2>
+			<div th:case="*">
+				<h2>Categoria</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="categoria : ${list}">
+							<td th:text="${categoria.nombre}">
+							<td><a th:href="@{/save/{id}{id=${categoria.id}}}">Editar</a>
+							<td><a th:href="@{/delete/{id}{id=${categoria.id}}}">Eliminar</a>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

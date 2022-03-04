@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Categorias</title>
+<!-- Bootstrap css -->
+<link href="../static/css/booststrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<form action="#" th:action="@{/save}" class="form-group" th:object="${Categoria}" method="post">
+			<label for="nombre"></label>
+			<input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre">
+			<label for="descripcion"></label>
+			<input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion"">
+			<button type="submit" class="btn btn-success">Guardar</button>
+		</form>
+	</div>
+</body>
+</html>
